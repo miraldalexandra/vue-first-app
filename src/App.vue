@@ -4,19 +4,25 @@
   <input type="text" ref="name" />
   <button @click="handleClick">ref</button>
   <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+  <!-- <Modal header="prpos: header" text="text through props" /> -->
+  <Modal :header="header" :text="text" theme="sale" />
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
+import Modal from "./components/Modal";
 
 export default {
   name: "App",
-  // components: {
-  //   HelloWorld
-  // }
+  components: {
+    // HelloWorld
+    Modal,
+  },
   data() {
     return {
       title: "Vue first app",
+      header: "header through props",
+      text: "some text through props",
     };
   },
   methods: {
