@@ -7,6 +7,13 @@
       <p>{{ text }}</p>
     </div>
   </div>
+
+  <!-- MODAL 2 slot -->
+  <div class="backdrop" @click.self="closeModal">
+    <div class="modal" :class="{ dark: theme === 'dark' }">
+      <slot></slot>
+    </div>
+  </div>
 </template>
 
 <script>

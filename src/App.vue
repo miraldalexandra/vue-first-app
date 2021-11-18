@@ -7,21 +7,44 @@
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <!-- <Modal header="prpos: header" text="text through props" /> -->
   </div>
+  <!-- MODAL 1 -->
   <div v-if="showModal">
-    <Modal :header="header" :text="text" theme="sale" @close="toggleModal" />
+    <Modal :header="header" :text="text" theme="dark" @close="toggleModal" />
   </div>
+  <!-- MODAL 2 slot" -->
+  <div v-if="showModalTwo">
+    <Modal theme="" @close="toggleModalTwo">
+      <h2>slot</h2>
+      <p>modal slot</p>
+    </Modal>
+  </div>
+  <!-- MODAL BUTTONS -->
   <button @click="toggleModal">open modal</button>
+  <button @click="toggleModalTwo">open modal two</button>
+  <hr />
+  <!-- SLOT -->
+  <div>
+    <ModalSlot theme="dark">
+      <template v-slot:links>
+        <h2>slot links</h2>
+        <a href="#" class="btn-link">sign up now</a>
+        <a href="#" class="btn-link">more info</a>
+      </template>
+    </ModalSlot>
+  </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import Modal from "./components/Modal";
+import ModalSlot from "./components/ModalSlot";
 
 export default {
   name: "App",
   components: {
     // HelloWorld
     Modal,
+    ModalSlot,
   },
   data() {
     return {
@@ -29,6 +52,7 @@ export default {
       header: "header through props",
       text: "some text through props",
       showModal: false,
+      showModalTwo: false,
     };
   },
   methods: {
@@ -39,6 +63,9 @@ export default {
     },
     toggleModal() {
       this.showModal = !this.showModal;
+    },
+    toggleModalTwo() {
+      this.showModalTwo = !this.showModalTwo;
     },
   },
 };
@@ -52,5 +79,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.btn-link {
+  margin: 1rem;
 }
 </style>
