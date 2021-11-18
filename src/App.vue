@@ -8,16 +8,16 @@
     <!-- <Modal header="prpos: header" text="text through props" /> -->
   </div>
   <!-- MODAL 1 -->
-  <div v-if="showModal">
+  <teleport to=".modals" v-if="showModal">
     <Modal :header="header" :text="text" theme="dark" @close="toggleModal" />
-  </div>
+  </teleport>
   <!-- MODAL 2 slot" -->
-  <div v-if="showModalTwo">
+  <teleport to=".modals" v-if="showModalTwo">
     <Modal theme="" @close="toggleModalTwo">
       <h2>slot</h2>
       <p>modal slot</p>
     </Modal>
-  </div>
+  </teleport>
   <!-- MODAL BUTTONS -->
   <button @click="toggleModal">open modal</button>
   <button @click="toggleModalTwo">open modal two</button>
@@ -72,7 +72,8 @@ export default {
 </script>
 
 <style>
-#app {
+#app,
+.modals {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
