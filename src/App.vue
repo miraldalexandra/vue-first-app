@@ -4,6 +4,9 @@
     <h1>{{ title }}</h1>
     <input type="text" ref="name" />
     <button @click="handleClick">ref</button>
+
+    <Images />
+
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <!-- <Modal header="prpos: header" text="text through props" /> -->
   </div>
@@ -38,6 +41,7 @@
 // import HelloWorld from './components/HelloWorld.vue'
 import Modal from "./components/Modal";
 import ModalSlot from "./components/ModalSlot";
+import Images from "./components/Images";
 
 export default {
   name: "App",
@@ -45,6 +49,7 @@ export default {
     // HelloWorld
     Modal,
     ModalSlot,
+    Images,
   },
   data() {
     return {
